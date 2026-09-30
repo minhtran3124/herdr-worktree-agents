@@ -1,0 +1,15 @@
+# Rust build output
+board/target/
+
+# Personal settings belong in the plugin config dir; never commit a filled-in copy
+config.env
+
+# Partial writes left by an interrupted script or board
+*.tmp.*
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store

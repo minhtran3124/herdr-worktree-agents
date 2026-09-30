@@ -1,0 +1,15 @@
+[package]
+name = "wt-board"
+version = "0.1.0"
+edition = "2021"
+description = "herdr worktree panel: live agent state, PR/CI and git status per worktree"
+license = "MIT"
+
+[dependencies]
+ratatui = "0.30"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+lto = "thin"
+strip = true

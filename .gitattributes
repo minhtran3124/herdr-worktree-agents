@@ -1,0 +1,11 @@
+# Normalize text to LF. Shell scripts break with CRLF ("bad interpreter", "$'\r': command not found").
+* text=auto eol=lf
+
+*.sh text eol=lf
+*.rs text eol=lf
+*.toml text eol=lf
+*.md text eol=lf
+config.env.example text eol=lf
+
+# Generated; keep diffs quiet.
+board/Cargo.lock linguist-generated=true -diff

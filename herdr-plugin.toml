@@ -1,0 +1,51 @@
+id = "minhtran.worktrees"
+name = "Worktree Agents"
+version = "0.1.0"
+# Tested on 0.9.1: plugin panes with --direction, worktree.* events, startup hooks,
+# tab_bar_right command entries and workspace metadata tokens.
+min_herdr_version = "0.9.1"
+description = "Top-right panel of every git worktree in the project: agent state, PR/CI and git status"
+platforms = ["linux", "macos"]
+
+# Builds the Rust board when cargo is present; otherwise exits 0 and the bash board is used,
+# so a machine without Rust can still install. `herdr plugin link` skips this step.
+[[build]]
+command = ["sh", "scripts/build.sh"]
+
+[[panes]]
+id = "board"
+title = "Worktrees"
+placement = "split"
+# Pane cwd is not the plugin root, so resolve the launcher through HERDR_PLUGIN_ROOT.
+command = ["sh", "-c", "exec sh \"$HERDR_PLUGIN_ROOT/scripts/launch.sh\""]
+
+[[actions]]
+id = "toggle"
+title = "Worktrees: toggle panel"
+description = "Hide the panel everywhere, or show it in the active tab and re-enable auto-open."
+contexts = ["workspace", "pane"]
+command = ["bash", "panel.sh", "toggle"]
+
+[[actions]]
+id = "statusbar-install"
+title = "Worktrees: add tab-bar summary and sidebar PR row"
+description = "Write a managed block into herdr's config.toml, validate it and reload."
+command = ["bash", "scripts/statusbar.sh", "install"]
+
+[[actions]]
+id = "statusbar-remove"
+title = "Worktrees: remove tab-bar summary and sidebar PR row"
+description = "Remove the managed config block and clear published sidebar tokens. Run before uninstalling."
+command = ["bash", "scripts/statusbar.sh", "remove"]
+
+# Auto-open in any focused git workspace with 2+ worktrees, unless hidden with q/toggle.
+[[startup]]
+command = ["bash", "panel.sh", "ensure"]
+
+[[events]]
+on = "workspace.focused"
+command = ["bash", "panel.sh", "ensure"]
+
+[[events]]
+on = "worktree.created"
+command = ["bash", "panel.sh", "ensure"]
