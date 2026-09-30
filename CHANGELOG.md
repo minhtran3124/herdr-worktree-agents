@@ -6,6 +6,13 @@ All notable changes to this plugin are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-09-30
+
+### Fixed
+
+- The pane launcher now falls back to the bash board when the Rust binary cannot run (wrong
+  architecture or a stale build) instead of exiting and closing the panel immediately.
+
 ## [0.1.0] - 2026-09-30
 
 First release.
