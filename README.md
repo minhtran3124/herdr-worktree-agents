@@ -4,6 +4,8 @@ A [herdr](https://herdr.dev) plugin that keeps a panel in the top-right corner l
 worktree of the current project, with the state of the agents running in each one, its PR and CI,
 and its git status. Worktrees that need you sort to the top.
 
+![The Worktrees panel in a repo with three worktrees](docs/screenshots/panel.png)
+
 ```text
   edgeful-app         vs github/main
  4 worktrees  ⠙1                ⟳ now
