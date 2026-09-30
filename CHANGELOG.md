@@ -6,6 +6,12 @@ All notable changes to this plugin are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-09-30
+
+### Added
+
+- Panel screenshot in the README.
+
 ## [0.1.1] - 2026-09-30
 
 ### Fixed

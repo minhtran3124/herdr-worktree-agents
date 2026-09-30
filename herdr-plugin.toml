@@ -1,6 +1,6 @@
 id = "minhtran.worktrees"
 name = "Worktree Agents"
-version = "0.1.1"
+version = "0.1.2"
 # Tested on 0.9.1: plugin panes with --direction, worktree.* events, startup hooks,
 # tab_bar_right command entries and workspace metadata tokens.
 min_herdr_version = "0.9.1"

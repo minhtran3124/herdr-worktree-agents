@@ -1,6 +1,6 @@
 [package]
 name = "wt-board"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "herdr worktree panel: live agent state, PR/CI and git status per worktree"
 license = "MIT"
